@@ -1,0 +1,45 @@
+// Initialize the map
+const map = L.map('map').setView([0, 0], 2);
+
+// Add a base tile layer (e.g., OpenStreetMap)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+}).addTo(map);
+
+// Create a choropleth layer (GeoJSON)
+// Replace 'choropleth.geojson' with your GeoJSON data file
+const choroplethLayer = L.geoJSON(null, {
+    style: function (feature) {
+        // Style each feature based on data values
+        const value = feature.properties.value; // Replace with your data property
+        return {
+            fillColor: getColor(value),
+            weight: 1,
+            opacity: 1,
+            color: 'white',
+            fillOpacity: 0.7,
+        };
+    }
+}).addTo(map);
+
+// Create a bubble layer using Leaflet's CircleMarker
+// Replace 'bubbles.geojson' with your GeoJSON data file for bubbles
+const bubbleLayer = L.geoJSON(null, {
+    pointToLayer: function (feature, latlng) {
+        const radius = feature.properties.radius; // Replace with your data property
+        return L.circleMarker(latlng, {
+            radius: radius,
+            fillColor: 'blue',
+            color: 'blue',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.7,
+        });
+    }
+}).addTo(map);
+
+// Load your GeoJSON data for the choropleth layer
+// Load your GeoJSON data for the bubble layer
+
+// Add any other layers or markers you want
+// For example, you can add markers using L.marker or other layers as needed
