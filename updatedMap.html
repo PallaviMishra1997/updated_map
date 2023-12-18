@@ -26,7 +26,7 @@
             <div class="my-4 Drop">
                 <div class="row" id="dropdownContainer"></div>
               </div>
-              <div id="my_dataviz"></div>
+              <!-- <div id="my_dataviz"></div> -->
               <svg class="container-fluid"></svg>
 <script>
 // Data for the 3-layer nested dropdown
@@ -121,7 +121,6 @@ const dropdownData = [
       }
     });
 // dropdown end
-
 var parentContainer = d3.select("body").append("div")
           .classed("FactoryMain", true);
         // Create the 'container-factoryMain'
@@ -151,7 +150,6 @@ var parentContainer = d3.select("body").append("div")
         flowsImages.append("img")
           .classed("hideInvisible", true)
           .attr("src", "photos/Invisible.png");
-
         // Create the 'container-salesMain'
         var salesMainContainer = parentContainer.append("div")
           .classed("container-salesMain", true);
@@ -178,10 +176,9 @@ var parentContainer = d3.select("body").append("div")
                     const height = 450;
                     // Create an SVG container
                     const svg = d3
-                        .select("svg")
-                        .attr("width", width)
-                        .attr("height", height);
-
+                    .select("svg")
+                    .attr("width", width)
+                    .attr("height", height);
                     // Create data for bubble:
                     var markers = [
                         { long: -100.9611013, lat: 38.4727382, group: "A", size: 15, name: "USA" }, //USA
@@ -253,7 +250,6 @@ var parentContainer = d3.select("body").append("div")
                         .append('div')
                         .attr('class', 'navbar-brand')
                         .text('Source Factory: France(Europe)Total Sales= 10M');
-
                     const navList = navbar
                         .append('ul')
                         .attr('class', 'navbar-nav me-auto mb-2 mb-lg-0');
@@ -356,7 +352,6 @@ var parentContainer = d3.select("body").append("div")
                     const columnBarThree = flexContainer
                         .append('div')
                         .attr('class', 'columnBarThree');
-
                     columnBarThree
                         .append('table')
                         .append('thead')
@@ -523,8 +518,6 @@ var customNavbarData = [
         .text(function (data) { return data.value; });
 
 
-
-
  // Create data
  var headingData = ["By Customer", "By Segment", "By Market", "By Factory", "By Sales Nature"];
 
@@ -626,10 +619,6 @@ headingContainer.append("img")
         .text(function (cellData) { return cellData.value; });
 
 </script>
-
-
-
-
 
 </div>
 </div>
